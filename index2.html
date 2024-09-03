@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>IAF Assignment 2</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet/dist/leaflet.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <h1>IAF Assignment 2</h1>
+            <h2>
+                Submitted by: <br />
+                Saksham Lamba (RA2211003010867) <br />
+                Bharat Kumar Mishra (RA2211003010851)
+            </h2>
+
+            <a href="index.html">Click to Go to Assignment 1</a> <br />
+            <a href="index3.html">Click to Go to Assignment 3</a>
+
+            <p>Made using Leaflet</p>
+
+            <div id="map"></div>
+        </div>
+
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            var map = L.map("map").setView([20.5937, 78.9629], 5);
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+
+            var locations = [
+                {
+                    coords: [25.3176, 82.9739],
+                    title: "Varanasi - Banaras Gharana",
+                    description:
+                        "Varanasi is known for its classical music, dance, and art traditions, particularly the Banaras Gharana in music.",
+                },
+                {
+                    coords: [28.6139, 77.209],
+                    title: "Delhi - Mughal Miniatures",
+                    description:
+                        "Delhi was a hub of Mughal miniature painting, blending Persian and Indian artistic styles.",
+                },
+                {
+                    coords: [13.0827, 80.2707],
+                    title: "Chennai - Tanjore Paintings",
+                    description:
+                        "Chennai is associated with the traditional Tanjore paintings, known for their rich colors and surface richness.",
+                },
+                {
+                    coords: [23.0225, 72.5714],
+                    title: "Ahmedabad - Gujarat Textiles",
+                    description:
+                        "Ahmedabad is famous for its vibrant textile traditions, including Bandhani and Patola weaving.",
+                },
+                {
+                    coords: [19.076, 72.8777],
+                    title: "Mumbai - Progressive Artists' Group",
+                    description:
+                        "Mumbai was the birthplace of the Progressive Artists' Group, which played a significant role in modern Indian art.",
+                },
+                {
+                    coords: [12.9716, 77.5946],
+                    title: "Bengaluru - Mysore Painting",
+                    description:
+                        "Bengaluru is closely associated with the Mysore painting tradition, characterized by its elegance, detailing, and the use of natural pigments.",
+                },
+                {
+                    coords: [22.5726, 88.3639],
+                    title: "Kolkata - Bengal Renaissance",
+                    description:
+                        "Kolkata was the epicenter of the Bengal Renaissance, which was a cultural and artistic revival during the late 19th and early 20th centuries.",
+                },
+                {
+                    coords: [26.9124, 75.7873],
+                    title: "Jaipur - Jaipur School of Painting",
+                    description:
+                        "Jaipur is known for the Jaipur School of Painting, part of the larger Rajput painting tradition, characterized by its vibrant colors and elaborate scenes.",
+                },
+                {
+                    coords: [9.9252, 78.1198],
+                    title: "Madurai - Meenakshi Temple Art",
+                    description:
+                        "Madurai is home to the Meenakshi Temple, famous for its stunning architecture and sculptures that represent Dravidian art.",
+                },
+                {
+                    coords: [11.0168, 76.9558],
+                    title: "Coimbatore - Kovai Kondattam",
+                    description:
+                        "Coimbatore is known for Kovai Kondattam, an art form and festival celebrating the region’s cultural heritage.",
+                },
+            ];
+
+            locations.forEach(function (location) {
+                L.marker(location.coords)
+                    .addTo(map)
+                    .bindPopup(
+                        '<div class="popup-content"><h3>' +
+                            location.title +
+                            "</h3><p>" +
+                            location.description +
+                            "</p></div>"
+                    );
+            });
+        </script>
+    </body>
+</html>
